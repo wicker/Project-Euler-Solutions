@@ -8,48 +8,52 @@
 #include <stdio.h>
 #include <math.h>
 
-#define WHICHPRIME 4
+#define TOTAL      10
+#define WHICHPRIME 3
 
 int check_if_prime(int);
 
 void main(void)
 {
 
-  int i = 2 ;
+  int i;
   int count = 0;
+  int array[WHICHPRIME];
 
-  int array[WHICHPRIME-1];
-
-  while (count < WHICHPRIME)
+  for (i = 2; i < TOTAL; i++)
   {
-    if (check_if_prime(i) == 0) // i is prime if function returns 0
+    if (check_if_prime(i) == 0)
     {
-       array[count] = i;
+       printf("%d is a prime number.\n",i);
        count++;
+       array[count] = i;
     }
-    i++;
+    else
+       printf("%d is not a prime number.\n",i);
   }
 
-  printf("Prime #%d is %d.\n",WHICHPRIME,array[WHICHPRIME-1]);
-
+  printf("There are %d primes between 1 and %d.\n",count,WHICHPRIME);
+  printf("Prime #%d between 1 and %d is %d.\n",WHICHPRIME,TOTAL,array[WHICHPRIME]);
 }
 
+// check_if_prime(int i) returns a 0 if an integer is not
+// divisible by any number besides 1 and itself.   
+
 int check_if_prime(int i) {
-  int j;
-  int not_prime;
-  
-  for (j = 2; j < i; j++)
+  int j = 2;
+  int k = 0;
+  int not_prime = 0;
+
+  for (j = 2; j < i - 1; j++)
   {
-    if (i % j != 0)
-    {
-       not_prime++; // increment this for every number i is divisible by
-       printf("not_prime: %d\n",not_prime);
-    }
+    k = i % j;
+    if (k == 0)
+       not_prime++;
   }
 
-  if (not_prime == 0) 
-      return 0; // prime!
-  else
-      return 1; // not prime!
+  if (not_prime == 0)
+     return 0;
+  else 
+     return 1;
 }
 
