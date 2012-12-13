@@ -8,19 +8,18 @@
 #include <stdio.h>
 #include <math.h>
 
-#define TOTAL      10
-#define WHICHPRIME 3
+#define WHICHPRIME 10001
 
 int check_if_prime(int);
 
 void main(void)
 {
 
-  int i;
+  int i = 2;
   int count = 0;
   int array[WHICHPRIME];
 
-  for (i = 2; i < TOTAL; i++)
+  while (count < WHICHPRIME)
   {
     if (check_if_prime(i) == 0)
     {
@@ -30,10 +29,11 @@ void main(void)
     }
     else
        printf("%d is not a prime number.\n",i);
+    i++;
   }
 
-  printf("There are %d primes between 1 and %d.\n",count,WHICHPRIME);
-  printf("Prime #%d between 1 and %d is %d.\n",WHICHPRIME,TOTAL,array[WHICHPRIME]);
+  printf("Prime #%d is %d.\n",WHICHPRIME,array[count]);
+//  printf("Prime #%d between 1 and %d is %d.\n",WHICHPRIME,TOTAL,array[WHICHPRIME]);
 }
 
 // check_if_prime(int i) returns a 0 if an integer is not
