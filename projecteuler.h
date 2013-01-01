@@ -3,5 +3,17 @@
  * Copyright 2012 under the MIT License, <jeh.wicker@gmail.com>
 */
 
-int check_if_prime(int);
+#ifndef PROJECTEULER_H
+#define PROJECTEULER_H
 
+#define SIZE 500
+#define NUM  500
+long int ARRAY[SIZE];
+
+long int check_if_prime(long int);
+
+long int list_all_factors(long int);
+
+long int check_if_factor(long int, long int);
+
+#endif
