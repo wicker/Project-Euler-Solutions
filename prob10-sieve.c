@@ -10,7 +10,7 @@
 #include <math.h>
 #include <string.h>
 
-#define NUMTOFIND 11
+#define MAX 11
 
 int check_if_prime(int);
 
@@ -24,22 +24,22 @@ int main() {
   // the list is initialized with all 0 and every composite number then marked 
 
   int p,i; 
-  int numbers[NUMTOFIND];
+  int numbers[MAX];
   int *ptr;
   ptr = numbers;
 
   int num, base;
 
   // set the entirety of numbers to zero
-  for (p = 0; p < NUMTOFIND; p++)
+  for (p = 0; p < MAX; p++)
       numbers[p] = 0;
 
   // starting with number two, walk through all numbers and mark as not prime
-  for (i = 2; i < NUMTOFIND; i++)
+  for (i = 2; i < MAX; i++)
   {
       mark_all_primes(i, ptr);
       printf("all nums divisible by %d are now labeled 1.\n",i);
-  for (p = 0; p < NUMTOFIND; p++)
+  for (p = 0; p < MAX; p++)
       printf("num: %d is %d\n",p,numbers[p]);
   }
 
@@ -58,7 +58,7 @@ int check_if_prime(int numtocheck) {
   int k = 0;
   int not_prime = 0;
 
-  for (testdigit = 2; testdigit < NUMTOFIND; testdigit++)
+  for (testdigit = 2; testdigit < MAX; testdigit++)
   {
     k = numtocheck % testdigit;
     printf("num: %d k: %d\n",numtocheck,testdigit);
@@ -78,7 +78,7 @@ int check_if_prime(int numtocheck) {
 void mark_all_primes(int base, int *ptr) 
 {
   int i;
-  for (i = i + base; i < NUMTOFIND; i = i + base)
+  for (i = i + base; i < MAX; i = i + base)
   {
       ptr[i] = 1;
   }
@@ -86,7 +86,7 @@ void mark_all_primes(int base, int *ptr)
 
 /*
       base = i;
-      for (x = i; x < NUMTOFIND; x++)
+      for (x = i; x < MAX; x++)
           numbers[x] = 1;
 
  
@@ -99,9 +99,9 @@ void mark_all_primes(int base, int *ptr)
   }
 
 
-  for (p = 3; p < NUMTOFIND; p++)
+  for (p = 3; p < MAX; p++)
   {
-    for (i = p; i < NUMTOFIND; i = i + p)
+    for (i = p; i < MAX; i = i + p)
     {
     }
   }
