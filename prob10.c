@@ -1,4 +1,7 @@
 // Project Euler #10
+// Find sum of primes below 2,000,000
+// Compile with
+// gcc -std=c99 prob10.c -o prob10 -lm
 
 #include <stdio.h>
 #include <stdlib.h>
